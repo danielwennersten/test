@@ -25,6 +25,7 @@ public class Testgame extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
 			x = x + 5;
+			System.out.println(x);
 		}
 
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
