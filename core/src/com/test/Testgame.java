@@ -10,8 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Testgame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
-	float x = 0;
-	float y = 0;
+	float x,y;
 	
 	@Override
 	public void create () {
@@ -26,6 +25,7 @@ public class Testgame extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
 			x = x + 5;
+			System.out.println(x);
 		}
 
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
