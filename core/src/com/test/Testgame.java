@@ -16,6 +16,7 @@ public class Testgame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("Ship.png");
+		System.out.println(x);
 	}
 
 	@Override
