@@ -15,7 +15,7 @@ public class Testgame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("Ship.png");
+		img = new Texture("ship.png");
 	}
 
 	@Override
@@ -23,20 +23,19 @@ public class Testgame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && x < 576) {
 			x = x + 5;
-			System.out.println(x);
 		}
 
-		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+		if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && x > 0) {
 			x = x - 5;
 		}
 
-		if (Gdx.input.isKeyPressed(Input.Keys.UP))  {
+		if (Gdx.input.isKeyPressed(Input.Keys.UP) && y < 416)  {
 			y = y + 5;
 		}
 
-		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN) && y > 0) {
 			y = y - 5;
 		}
 		batch.begin();
