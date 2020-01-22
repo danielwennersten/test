@@ -6,7 +6,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Testgame extends ApplicationAdapter {
@@ -15,7 +14,6 @@ public class Testgame extends ApplicationAdapter {
 	Texture asteroid;
 	Rectangle ShipHitBox;
 	Rectangle AsteroidHitBox;
-	Intersector HitBoxIntersection;
 	float x,y;
 	
 	@Override
@@ -26,7 +24,6 @@ public class Testgame extends ApplicationAdapter {
 		ShipHitBox = new Rectangle(x,y,64,64);
 		AsteroidHitBox = new Rectangle(300,220, 32, 32);
 		System.out.println(x);
-		HitBoxIntersection = new Intersector();
 	}
 
 	@Override
@@ -36,7 +33,6 @@ public class Testgame extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
 			x = x + 5;
-			System.out.println(x);
 		}
 
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -50,13 +46,13 @@ public class Testgame extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
 			y = y - 5;
 		}
-		boolean isIntersecting = Intersector.overlaps(ShipHitBox,AsteroidHitBox);
-        if (isIntersecting){
-            System.out.println("We've been hit, Captain!!!");
-        }
+
+		ShipHitBox.setPosition(x,y);
+
 		batch.begin();
 		batch.draw(img, x, y);
 		batch.draw(asteroid, 300, 220);
+		System.out.println(ShipHitBox.overlaps(AsteroidHitBox));
 		batch.end();
 	}
 	
