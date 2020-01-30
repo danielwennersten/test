@@ -6,16 +6,23 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Testgame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
+	Texture asteroid;
+	Rectangle ShipHitBox;
+	Rectangle AsteroidHitBox;
 	float x,y;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("ship.png");
+		ShipHitBox = new Rectangle(x,y,64,64);
+		asteroid = new Texture("asteroid.png");
+		AsteroidHitBox = new Rectangle(200,300,32,32);
 	}
 
 	@Override
@@ -38,8 +45,13 @@ public class Testgame extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Input.Keys.DOWN) && y > 0) {
 			y = y - 5;
 		}
+
+		ShipHitBox.setPosition(x,y);
+		System.out.println(ShipHitBox.overlaps(AsteroidHitBox));
+
 		batch.begin();
 		batch.draw(img, x, y);
+		batch.draw(asteroid, 200, 300);
 		batch.end();
 	}
 	
